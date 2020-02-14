@@ -9,26 +9,26 @@ export const DEFAULT_TEMPLATE = `
                          [maxSize]="maxSize"
                          (pageChange)="pageChange.emit($event)"
                          (pageBoundsCorrection)="pageBoundsCorrection.emit($event)">
-    <ul class="ngx-pagination" 
+    <div class="ngx-pagination" 
         role="navigation" 
         [attr.aria-label]="screenReaderPaginationLabel" 
         [class.responsive]="responsive"
         *ngIf="!(autoHide && p.pages.length <= 1)">
 
-        <li class="pagination-previous" [class.disabled]="p.isFirstPage()" *ngIf="directionLinks"> 
+        <button class="pagination-previous" [class.disabled]="p.isFirstPage()" *ngIf="directionLinks"> 
             <a tabindex="0" *ngIf="1 < p.getCurrent()" (keyup.enter)="p.previous()" (click)="p.previous()" [attr.aria-label]="previousLabel + ' ' + screenReaderPageLabel">
                 {{ previousLabel }} <span class="show-for-sr">{{ screenReaderPageLabel }}</span>
             </a>
             <span *ngIf="p.isFirstPage()">
                 {{ previousLabel }} <span class="show-for-sr">{{ screenReaderPageLabel }}</span>
             </span>
-        </li> 
+        </button> 
 
-        <li class="small-screen">
+        <span class="small-screen">
             {{ p.getCurrent() }} / {{ p.getLastPage() }}
-        </li>
+        </span>
 
-        <li [class.current]="p.getCurrent() === page.value" 
+        <button [class.current]="p.getCurrent() === page.value" 
             [class.ellipsis]="page.label === '...'"
             *ngFor="let page of p.pages">
             <a tabindex="0" (keyup.enter)="p.setCurrent(page.value)" (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">
@@ -39,18 +39,18 @@ export const DEFAULT_TEMPLATE = `
                 <span class="show-for-sr">{{ screenReaderCurrentLabel }} </span>
                 <span>{{ (page.label === '...') ? page.label : (page.label | number:'') }}</span> 
             </ng-container>
-        </li>
+        </button>
 
-        <li class="pagination-next" [class.disabled]="p.isLastPage()" *ngIf="directionLinks">
+        <button class="pagination-next" [class.disabled]="p.isLastPage()" *ngIf="directionLinks">
             <a tabindex="0" *ngIf="!p.isLastPage()" (keyup.enter)="p.next()" (click)="p.next()" [attr.aria-label]="nextLabel + ' ' + screenReaderPageLabel">
                  {{ nextLabel }} <span class="show-for-sr">{{ screenReaderPageLabel }}</span>
             </a>
             <span *ngIf="p.isLastPage()">
                  {{ nextLabel }} <span class="show-for-sr">{{ screenReaderPageLabel }}</span>
             </span>
-        </li>
+        </button>
 
-    </ul>
+    </div>
     </pagination-template>
     `;
 

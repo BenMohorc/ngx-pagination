@@ -1,7 +1,7 @@
 {
-  "name": "ngx-pagination",
+  "name": "ngx-pagination-ada",
   "version": "5.0.0",
-  "description": "Pagination for Angular",
+  "description": "Pagination for Angular, forked for ADA compliance",
   "module": "dist/ngx-pagination.js",
   "main": "dist/ngx-pagination.umd.js",
   "types": "dist/ngx-pagination.d.ts",
@@ -24,13 +24,6 @@
     "angular2",
     "pagination"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/michaelbromley/ngx-pagination"
-  },
-  "bugs": {
-    "url": "https://github.com/michaelbromley/ngx-pagination/issues"
-  },
   "author": "Michael Bromley <michael@michaelbromley.co.uk>",
   "license": "MIT",
   "devDependencies": {
