@@ -2,7 +2,7 @@
  * The default template and styles for the pagination links are borrowed directly
  * from Zurb Foundation 6: http://foundation.zurb.com/sites/docs/pagination.html
  */
-
+​
 export const DEFAULT_TEMPLATE = `
     <pagination-template  #p="paginationApi"
                          [id]="id"
@@ -14,46 +14,47 @@ export const DEFAULT_TEMPLATE = `
         [attr.aria-label]="screenReaderPaginationLabel" 
         [class.responsive]="responsive"
         *ngIf="!(autoHide && p.pages.length <= 1)">
-
-        <button class="pagination-previous" [class.disabled]="p.isFirstPage()" *ngIf="directionLinks"> 
-            <a tabindex="0" *ngIf="1 < p.getCurrent()" (keyup.enter)="p.previous()" (click)="p.previous()" [attr.aria-label]="previousLabel + ' ' + screenReaderPageLabel">
+​
+        <button class="pagination-previous" [class.disabled]="p.isFirstPage()" *ngIf="directionLinks" (keyup.enter)="p.previous()" (click)="p.previous()" [attr.aria-label]="previousLabel + ' ' + screenReaderPageLabel"> 
+            <span class="pagination-label" *ngIf="1 < p.getCurrent()" >
                 {{ previousLabel }} <span class="show-for-sr">{{ screenReaderPageLabel }}</span>
-            </a>
+            </span>
             <span *ngIf="p.isFirstPage()">
                 {{ previousLabel }} <span class="show-for-sr">{{ screenReaderPageLabel }}</span>
             </span>
         </button> 
-
+​
         <span class="small-screen">
             {{ p.getCurrent() }} / {{ p.getLastPage() }}
         </span>
-
+​
         <button [class.current]="p.getCurrent() === page.value" 
             [class.ellipsis]="page.label === '...'"
-            *ngFor="let page of p.pages">
-            <a tabindex="0" (keyup.enter)="p.setCurrent(page.value)" (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">
+            *ngFor="let page of p.pages"
+            (keyup.enter)="p.setCurrent(page.value)" (click)="p.setCurrent(page.value)">
+            <span class="pagination-label" *ngIf="p.getCurrent() !== page.value">
                 <span class="show-for-sr">{{ screenReaderPageLabel }} </span>
                 <span>{{ (page.label === '...') ? page.label : (page.label | number:'') }}</span>
-            </a>
+            </span>
             <ng-container *ngIf="p.getCurrent() === page.value">
                 <span class="show-for-sr">{{ screenReaderCurrentLabel }} </span>
                 <span>{{ (page.label === '...') ? page.label : (page.label | number:'') }}</span> 
             </ng-container>
         </button>
-
-        <button class="pagination-next" [class.disabled]="p.isLastPage()" *ngIf="directionLinks">
-            <a tabindex="0" *ngIf="!p.isLastPage()" (keyup.enter)="p.next()" (click)="p.next()" [attr.aria-label]="nextLabel + ' ' + screenReaderPageLabel">
+​
+        <button class="pagination-next" [class.disabled]="p.isLastPage()" *ngIf="directionLinks" (keyup.enter)="p.next()" (click)="p.next()" [attr.aria-label]="nextLabel + ' ' + screenReaderPageLabel">
+            <span class="pagination-label" *ngIf="!p.isLastPage()">
                  {{ nextLabel }} <span class="show-for-sr">{{ screenReaderPageLabel }}</span>
-            </a>
+            </span>
             <span *ngIf="p.isLastPage()">
                  {{ nextLabel }} <span class="show-for-sr">{{ screenReaderPageLabel }}</span>
             </span>
         </button>
-
+​
     </div>
     </pagination-template>
     `;
-
+​
 export const DEFAULT_STYLES = `
 .ngx-pagination {
   margin-left: 0;
@@ -77,7 +78,7 @@ export const DEFAULT_STYLES = `
     display: block;
     padding: 0.1875rem 0.625rem;
     border-radius: 0; }
-    .ngx-pagination a:hover,
+    .ngx-pagination span.pagination-label:hover,
     .ngx-pagination button:hover {
       background: #e6e6e6; }
   .ngx-pagination .current {
@@ -93,19 +94,19 @@ export const DEFAULT_STYLES = `
       background: transparent; }
   .ngx-pagination a, .ngx-pagination button {
     cursor: pointer; }
-
+​
 .ngx-pagination .pagination-previous a::before,
 .ngx-pagination .pagination-previous.disabled::before { 
   content: '«';
   display: inline-block;
   margin-right: 0.5rem; }
-
+​
 .ngx-pagination .pagination-next a::after,
 .ngx-pagination .pagination-next.disabled::after {
   content: '»';
   display: inline-block;
   margin-left: 0.5rem; }
-
+​
 .ngx-pagination .show-for-sr {
   position: absolute !important;
   width: 1px;
