@@ -1,6 +1,6 @@
 {
   "name": "ngx-pagination-ada",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "Pagination for Angular, forked for ADA compliance",
   "module": "dist/ngx-pagination.js",
   "main": "dist/ngx-pagination.umd.js",
