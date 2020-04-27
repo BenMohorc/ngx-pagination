@@ -21,4 +21,4 @@ export {PaginatePipe} from './paginate.pipe';
     providers: [PaginationService],
     exports: [PaginatePipe, PaginationControlsComponent, PaginationControlsDirective]
 })
-export class NgxPaginationModule { }
+export class NgxPaginationAdaModule { }

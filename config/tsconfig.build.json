@@ -13,13 +13,13 @@
     "rootDir": "../src"
   },
   "files": [
-    "../src/ngx-pagination.module.ts"
+    "../src/ngx-pagination-ada.module.ts"
   ],
   "angularCompilerOptions": {
     "skipMetadataEmit": false,
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
-    "flatModuleOutFile": "ngx-pagination.js",
-    "flatModuleId": "ngx-pagination"
+    "flatModuleOutFile": "ngx-pagination-ada.js",
+    "flatModuleId": "ngx-pagination-ada"
   }
 }

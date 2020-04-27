@@ -1,7 +1,7 @@
 import {Component, DebugElement, Type} from '@angular/core';
 import {By} from '@angular/platform-browser';
 import {TestBed, ComponentFixture} from '@angular/core/testing';
-import {PaginationInstance} from '../ngx-pagination.module';
+import {PaginationInstance} from '../ngx-pagination-ada.module';
 import {PaginationControlsDirective} from '../pagination-controls.directive';
 
 /**

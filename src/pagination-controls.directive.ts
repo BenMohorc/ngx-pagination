@@ -103,7 +103,7 @@ export class PaginationControlsDirective {
      */
     getLastPage(): number {
         let inst = this.service.getInstance(this.id);
-        if (inst.totalItems < 1) {
+        if (inst.totalItems <= inst.itemsPerPage) {
             // when there are 0 or fewer (an error case) items, there are no "pages" as such,
             // but it makes sense to consider a single, empty page as the last page.
             return 1;
